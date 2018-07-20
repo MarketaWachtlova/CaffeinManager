@@ -34,10 +34,11 @@ plugins:
 
 ## Usage
 
-### Run the app - start Dancer's standalone server
+### Start the application
 ```bash
 plackup -r bin/app.psgi
 ```
+Standalone server that serves the application is listening on port 5000.
 
 ### Run tests
 ```bash
