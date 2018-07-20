@@ -6,7 +6,7 @@ Markéta Wachtlová
 
 ## The Deployment
 
-### Install required Perl modules
+### Install the required Perl modules
 **cpanfile** specifies exact modules versions
 
 ### Install PostgreSQL DBMS
@@ -30,7 +30,7 @@ plugins:
 
 ## Usage
 
-### Run app - start Dancer's standalone server
+### Run the app - start Dancer's standalone server
 ```bash
 plackup -r bin/app.psgi
 ```
@@ -41,7 +41,7 @@ perl Makefile.PL
 make test
 ```
 
-### Send request
+### Send a request
 #### Examples:
 ##### Register a user
 ```bash
@@ -50,7 +50,7 @@ curl -X PUT -H "Content-Type: application/json" -d '{"login":"login", "email":"e
 
 ##### Register a machine
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"name":"maky", "caffeine":12}' http://0.0.0.0:5000/machine
+curl -X POST -H "Content-Type: application/json" -d '{"name":"name", "caffeine":12}' http://0.0.0.0:5000/machine
 ```
 
 ##### Buy a coffee
@@ -74,40 +74,40 @@ Every request returns json object with
 		* error_text
 
 PUT /user/request
-	* arg keys
-		* login - mandatory, unique
-		* password - mandatory
-		* email - mandatory, unique
-	* result keys
-		* id
+* arg keys
+	* login - mandatory, unique
+	* password - mandatory
+	* email - mandatory, unique
+* result keys
+	* id
 
 POST /machine
-	* registry machine
-		* name
-		* caffeine - mg per cup
-	* returns
-		* id
+* registry machine
+	* name
+	* caffeine - mg per cup
+* returns
+	* id
 
 GET /coffee/buy/:user-id/:machine-id
-	* registry coffee bought by user at current time
+* registry coffee bought by user at current time
 
 PUT /coffee/buy/:user-id/:machine
-	* similar to GET but use given timestamp
-	* args
-		* timestamp - iso-8601 timestamp
+* similar to GET but use given timestamp
+* args
+	* timestamp - iso-8601 timestamp
 
 GET /stats/coffee
 GET /stats/coffee/machine/:id
 GET /stats/coffee/user/:id
-	* return history of user transactions per user/machine/ or global
-	* list of objects with
-		* machine - object with name and id keys
-		* user - object with login and id keys
-		* timestamp
+* return history of user transactions per user/machine/ or global
+* list of objects with
+	* machine - object with name and id keys
+	* user - object with login and id keys
+	* timestamp
 
 GET /stats/level/user/:id
-	* return caffeine level history of user
-	* let’s assume that caffeine level
-		* increases linearly from 0 to 100% in first hour
-		* is reduced afterwards by half every 5 hour
-	* return list of levels for past 24 hour using 1h resolution
+* return caffeine level history of user
+* let’s assume that caffeine level
+	* increases linearly from 0 to 100% in first hour
+	* is reduced afterwards by half every 5 hour
+* return list of levels for past 24 hour using 1h resolution
