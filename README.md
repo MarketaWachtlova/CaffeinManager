@@ -4,6 +4,8 @@ The Caffeine Manager allows its users to manage and monitor their caffeine intox
 ## Author
 Markéta Wachtlová
 
+-------------------------------------------------------------------------------
+
 ## The Deployment
 
 ### Install the required Perl modules
@@ -27,6 +29,8 @@ plugins:
         username: ''
         password: ''
 ```
+
+-------------------------------------------------------------------------------
 
 ## Usage
 
@@ -63,6 +67,7 @@ curl http://0.0.0.0:5000/coffee/buy/1/1
 curl http://0.0.0.0:5000/stats/level/user/1
 ```
 
+-------------------------------------------------------------------------------
 
 ## The assignment details
 
